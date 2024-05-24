@@ -22,7 +22,7 @@ export default function Banner() {
 
   const getMedia = async () => {
     try {
-      const result = await axios.get('/api/popular?type=movie');
+      const result = await axios.get('/api/discover?type=movie');
       setMedia(result.data.data[random]);
     } catch (error) {}
   };

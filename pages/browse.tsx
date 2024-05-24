@@ -38,30 +38,13 @@ export default function Browse(): React.ReactElement {
 
 const sections: Section[] = [
   {
-    heading: 'Popular on Nextflix',
-    endpoint: '/api/popular?type=tv'
-  },
-  {
-    heading: 'Horror Movies',
-    endpoint: '/api/discover?type=movie&genre=27'
-  },
-  {
     heading: 'Only on Nextflix',
     endpoint: '/api/discover?type=tv',
     defaultCard: false
   },
   {
-    heading: 'Trending Now',
-    endpoint: '/api/trending?type=movie&time=week'
-  },
-  {
     heading: 'Comedies',
     endpoint: '/api/discover?type=movie&genre=35'
-  },
-  {
-    heading: 'Top 10 in US Today',
-    endpoint: '/api/trending?type=tv&time=day',
-    topList: true
   },
   {
     heading: 'Action',

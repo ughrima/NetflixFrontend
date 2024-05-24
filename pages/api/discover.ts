@@ -9,22 +9,18 @@ interface Response {
   data: Media[] | Error;
 }
 
-const apiKey = process.env.TMDB_KEY;
-
 export default async function handler(request: NextApiRequest, response: NextApiResponse<Response>) {
   const axios = getInstance();
   const { type, genre } = request.query;
 
   try {
-    const result = await axios.get(`/discover/${type}`, {
+    const result = await axios.get(`/discover`, {
       params: {
-        api_key: apiKey,
-        with_genres: genre,
-        watch_region: 'US',
-        with_networks:'213',
+        type: type,
+        genre: genre,
       }
     });
-    const data = parse(result.data.results, type as MediaType);
+    const data = parse(result.data, type as MediaType);
 
     response.status(200).json({ type: 'Success', data });
   } catch (error) {

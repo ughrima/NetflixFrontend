@@ -1,34 +1,35 @@
-# Nextflix 
-A simple Netflix Clone made using [Next.js](https://nextjs.org/) ⚡
+# Netflix 
 
-Currently, I have implemented the basic UI with media details fetch functionality.
-
-
-Deployed it using vercel [here](https://nextflix-azure.vercel.app/).
-
-Please leave a ⭐ as motivation if you liked the implementation 😄
+A simple Netflix Clone made using [Next.js](https://nextjs.org/).
 
 
-## Demo
-![Demo](/public/assets/demo.gif)
-<br />
-<br />
+### Prerequisites
 
-## Built with
-* [Next.js](https://nextjs.org/)
-* [Typescript](https://www.typescriptlang.org/)
-* [Sass](https://sass-lang.com/)
-* [TMDB API](https://www.themoviedb.org/)
+- Node.js (v14.x or later recommended)
+- npm - a package manager from Node.js (comes with Node.js).
 
+### Running the app
 
-## Running the project
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Install dependencies:
 
-In the project directory, you can run:
+```bash
+npm install
+```
 
-#### `yarn start`
+Build the project by:
 
-It runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser. 
+```bash
+npm run build
+```
 
+The app depends on the [NetflixMovieCatalog](https://github.com/alonitac/NetflixMovieCatalog.git) API service.
+Thus, you have to run the NetflixMovieCatalog app first and define the service's URL as an env var, as follows:
 
+```bash
+export MOVIE_CATALOG_SERVICE=http://localhost:8080
+```
+
+Start the Netflix Frontend app by:
+```bash
+npm start
+```

@@ -1,17 +1,23 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { NextRouter, useRouter } from 'next/router';
-
+import { GetServerSideProps } from 'next';
 import styles from '../styles/Login.module.scss';
 import LoginBg from '../public/assets/loginBg.jpg';
 import { ROUTES } from '../config/route';
+import { getSessionId } from '../utils/session';
+
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+  getSessionId(req, res); // Set the session cookie on the server side
+  return { props: {} };
+};
 
 export default function Home(): React.ReactElement {
   const router: NextRouter = useRouter();
 
   const onSignIn = () => {
-    router.push(ROUTES.BROWSE)
-  }
+    router.push(ROUTES.BROWSE);
+  };
 
   return (
     <div className={styles.container}>

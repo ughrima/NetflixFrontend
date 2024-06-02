@@ -2,15 +2,15 @@ import { IncomingMessage, ServerResponse } from 'http';
 import { v4 as uuidv4 } from 'uuid';
 import cookie from 'cookie';
 
-export function parseCookies(req?: IncomingMessage): { [key: string]: string } {
-  return cookie.parse(req ? req.headers.cookie || '' : document.cookie);
+export function parseCookies(req: IncomingMessage): { [key: string]: string } {
+  return cookie.parse(req.headers.cookie || '');
 }
 
-export function setSessionCookie(res: ServerResponse, sessionId: string): void {
+function setServerSessionCookie(res: ServerResponse, sessionId: string): void {
   const serializedCookie = cookie.serialize('session_id', sessionId, {
     httpOnly: true,
     secure: true,
-    maxAge: 60 * 60,   // 1 hour
+    maxAge: 60 * 60 * 24, // 1 day
     path: '/',
   });
 
@@ -23,7 +23,7 @@ export function getSessionId(req: IncomingMessage, res: ServerResponse): string 
 
   if (!sessionId) {
     sessionId = uuidv4();
-    setSessionCookie(res, sessionId);
+    setServerSessionCookie(res, sessionId);
   }
 
   return sessionId;

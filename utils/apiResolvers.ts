@@ -23,7 +23,8 @@ export function parse(array: any[], type: MediaType): Media[] {
 
 function getImageUrl(path: string, type: ImageType): string {
   const dimension: string = type === 'poster' ? 'w500' : 'original';
-  return `https://image.tmdb.org/t/p/${dimension}${path}`;
+  const movieImageURL = process.env.MOVIE_IMAGE_URL || 'https://image.tmdb.org/t/p' ;
+  return `${movieImageURL}/${dimension}${path}`;
 }
 
 function getGenre(genreIds: number[], type: MediaType) {

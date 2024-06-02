@@ -22,9 +22,31 @@ export default function Cards({ defaultCard = true, item }: CardsProps): React.R
 
   const { setModalData, setIsModal } = useContext(ModalContext);
 
+  const handleMovieCardClick = async (data: Media) => {
+    try {
+      const response = await fetch('/api/analytics', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ mediaId: data.id }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const resData = await response.json();
+      console.log('Success:', resData);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
   const onClick = (data: Media) => {
     setModalData(data);
     setIsModal(true);
+    handleMovieCardClick(data);
   };
 
   return (

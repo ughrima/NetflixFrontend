@@ -8,7 +8,7 @@ import { ROUTES } from '../config/route';
 import { getSessionId } from '../utils/session';
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  getSessionId(req, res); // Set the session cookie on the server side
+  await getSessionId(req, res); // Set the session cookie on the server side
   return { props: {} };
 };
 

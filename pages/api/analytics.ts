@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 const s3 = (process.env.AWS_REGION && process.env.AWS_S3_BUCKET) ? new AWS.S3({ region: process.env.AWS_REGION }) : null;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const sessionId = getSessionId(req, res);
+  const sessionId = await getSessionId(req, res);
   const timestamp = new Date().toISOString();
   const activityId = uuidv4();
 

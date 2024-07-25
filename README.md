@@ -22,7 +22,7 @@ Build the project by:
 npm run build
 ```
 
-The app depends on the [NetflixMovieCatalog](https://github.com/alonitac/NetflixMovieCatalog.git) API service.
+The app depends on the [NetflixMovieCatalog](https://github.com/exit-zero-academy/NetflixMovieCatalog.git) API service.
 Thus, you have to run the NetflixMovieCatalog app first and define the service's URL as an env var, as follows:
 
 ```bash

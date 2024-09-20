@@ -1,5 +1,6 @@
 # Use an official Node.js runtime as a base image (Node 14)
 FROM node:14
+# FROM node:14-alpine
 
 # Set the working directory in the container
 WORKDIR /app
@@ -9,6 +10,7 @@ COPY package*.json ./
 
 # Install any needed packages specified in package.json
 RUN npm install
+# RUN npm install --only=production
 
 # Copy the rest of the application code to the container
 COPY . .

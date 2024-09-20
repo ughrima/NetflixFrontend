@@ -10,7 +10,7 @@ env:
   AWS_ECR_REGISTRY: 700935310038.dkr.ecr.us-east-1.amazonaws.com
   AWS_ECR_USERNAME: AWS
 
-  AWS_ECR_REPOSITORY: ai-tsadok/netflix-frontend
+  AWS_ECR_REPOSITORY: [YOUR_ECR_REPOSITORY_NAME]
   IMAGE_TAG: latest
 
 jobs:
